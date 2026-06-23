@@ -30,7 +30,7 @@ console.log(removeDuplicates(numbers));
 
 //Method 3: Using filter and indexOf
 function removeDuplicates(arr) {
-    return arr.filter(function(value, index) {
+    return arr.filter(function (value, index) {
         return arr.indexOf(value) === index;
     });
 }
@@ -43,7 +43,7 @@ console.log(removeDuplicates(numbers));
 
 //Method 4: Using reduce
 function removeDuplicates(arr) {
-    return arr.reduce(function(result, value) {
+    return arr.reduce(function (result, value) {
         if (!result.includes(value)) {
             result.push(value);
         }
@@ -55,3 +55,19 @@ console.log(removeDuplicates(numbers));
 
 //In this approach, I used the reduce method. The reduce method executes a reducer function on each element of the array, resulting in a single output value. I initialized the result as an empty array. For each value, I checked if it was already present in the result array using includes(). If it was not present, I added it to the result array.
 //T.c-> O(n^2) because includes() has a time complexity of O(n) and we are using it inside reduce, and S.c-> O(n) for the new array created to store unique values.
+
+
+//Using sorting and a loop
+
+function removeDuplicates(arr) {
+    let sorted = [...arr].sort((a, b) => a - b);
+    let result = [];
+    for (let i = 0; i < sorted.length; i++) {
+        if (sorted[i] !== sorted[i - 1]) {
+            result.push(sorted[i]);
+        }
+    }
+    return result;
+}
+let numbers = [1, 2, 3, 6, 4, 3, 7, 4, 2, 6, 8, 2, 5, 9, 0, 1];
+console.log(removeDuplicates(numbers));
