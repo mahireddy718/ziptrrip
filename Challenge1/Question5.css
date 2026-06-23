@@ -1,0 +1,55 @@
+/*Method 1 :Using flexbox */
+#container {
+    display: flex;
+    width: 100%;
+
+}
+.left,
+.right {
+    width: 100px;
+    flex-shrink: 0;
+}
+.middle {
+    flex: 1;
+}
+
+/* Reason: */
+/* In this method, I used Flexbox because it is the easiest way to place elements horizontally. The left and right boxes are given a fixed width of 100px. The middle box uses flex: 1, so it automatically occupies all the remaining space between them. Since Flexbox manages the available space properly, the contents of the boxes will not overlap even if the container size changes */
+
+
+/* Method 2: Using CSS Grid */
+#container {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    width: 100%;
+}
+.middle {
+    overflow: hidden;
+}
+
+/* Reason: */
+/* In this method, I used CSS Grid. The first and last columns are fixed to 100px, while the middle column uses 1fr to occupy the remaining available width. This makes the layout responsive and prevents overlapping of content when the container size changes. */
+
+
+/* Method 3: Using absolute positioning */
+#container {
+    position: relative;
+}
+.left {
+    position: absolute;
+    left: 0;
+    width: 100px;
+
+}
+.right {
+    position: absolute;
+    right: 0;
+    width: 100px;
+}
+.middle {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Reason: */
+/* In this method, I used position: absolute for the left and right boxes. Both boxes are fixed at the sides of the container. The middle box uses left and right margins of 100px so that it occupies the remaining space. This also prevents the contents from overlapping. */
