@@ -12,6 +12,7 @@ function reverseStringLoop(str) {
   return result;
 }
  
+
 //Approach 3: Using recursion
 function reverseStringRecursive(str) {
   if (str.length <= 1) return str;
