@@ -1,0 +1,23 @@
+1) .box
+
+The selector .box will select line numbers 2, 6 and 10 because these elements contain class="box". This selector only checks whether an element has the class name box, regardless of where the element is placed in the HTML structure. It will not select line 4 because its class name is box2. It will also not select lines 1 and 5 because they do not have the class box.
+
+2) div .box
+
+The selector div .box will select line numbers 2 and 6 because these .box elements are present inside the container div. This selector looks for elements with class box that are inside a div. It will not select line 10 because it is outside the container section shown in the given structure. It will also not select line 4 because it has the class name box2.
+
+3) div.box
+
+The selector div.box will select line numbers 2, 6 and 10 because all these elements are <div> tags and they also have class="box". This selector requires both conditions to be true at the same time. It will not select line 4 because its class name is box2, and it will not select line 5 because it does not have any class attribute.
+
+4) [class]
+
+The selector [class] will select line numbers 2, 4, 6 and 10 because it selects every element that contains a class attribute. It does not matter what the class name is. It will not select line 1 because it only has an id attribute, and it will not select line 5 because it does not contain any class attribute.
+
+5) #container .box
+
+The selector #container .box will select line numbers 2 and 6 because these elements have the class box and are located inside the element whose id is container. It will not select line 10 because it is outside the container div. It will also not select line 4 because its class name is box2.
+
+6) #container > .box
+
+The selector #container > .box will select only line number 2 because the > symbol represents a direct child relationship. Line 2 is a direct child of #container. Line 6 will not be selected because it is inside another div, making it a grandchild instead of a direct child. Line 10 will not be selected because it is outside the container div.
